@@ -6,6 +6,4 @@ base:
     - php.ng
     - php.ng.mysql
     - mysql
-    - sugarcrm.cli
     - sugarcrm
-    - sugarcrm.config
