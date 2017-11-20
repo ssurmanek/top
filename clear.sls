@@ -1,5 +1,5 @@
 sugarcrm_rmv:
-  pkg.purgeed:
+  pkg.purged:
     - name: sugarcrm
 
 apache_rmv:
