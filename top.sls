@@ -4,8 +4,8 @@ base:
     - apache
     - apache.config
     - apache.vhosts.standard
-    - php.ng
-    - php.ng.mysql
+    - php
+    - php.mysql
     - mysql
     - sugarcrm.cli
     - sugarcrm
