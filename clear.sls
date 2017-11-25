@@ -1,10 +1,10 @@
-sugarcrm_rmv:
-  pkg.purged:
-    - name: sugarcrm
+#sugarcrm_rmv:
+#  pkg.purged:
+#    - name: sugarcrm
 
-apache_rmv:
-  pkg.purged:
-    - name: apache2
+#apache_rmv:
+#  pkg.purged:
+#    - name: apache2
 
 php_rmv:
   pkg.purged:
@@ -16,6 +16,6 @@ php_rmv:
       - php.ng.mysql
       - php.ng.zip
 
-mysql_rmv:
-  pkg.purged:
-    - name: mysql
+#mysql_rmv:
+#  pkg.purged:
+#    - name: mysql
