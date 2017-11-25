@@ -8,7 +8,13 @@ apache_rmv:
 
 php_rmv:
   pkg.purged:
-    - name: php
+    - name: 
+      - php
+      - php.mysql
+      - php.zip
+      - php.ng
+      - php.ng.mysql
+      - php.ng.zip
 
 mysql_rmv:
   pkg.purged:
