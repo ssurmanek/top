@@ -6,6 +6,7 @@ base:
     - apache.vhosts.standard
     - php
     - php.mysql
+    - php.zip
     - mysql
     - sugarcrm.cli
     - sugarcrm
