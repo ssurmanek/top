@@ -10,4 +10,4 @@ base:
     - mysql
     - sugarcrm.cli
     - sugarcrm   
-    - sugarcrm.create-user
+    - sugarcrm.user-list
