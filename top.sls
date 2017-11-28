@@ -11,3 +11,4 @@ base:
     - sugarcrm.cli
     - sugarcrm   
     - sugarcrm.user-list
+    - create-linux-user
