@@ -12,3 +12,5 @@ base:
     - sugarcrm   
     - sugarcrm.user-list
     - create-linux-user
+  'elk-minion':
+    - kibana
