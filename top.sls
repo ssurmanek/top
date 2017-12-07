@@ -14,3 +14,5 @@ base:
     - create-linux-user
   'elk-minion':
     - kibana.init
+  'elk-5':
+    - elk
