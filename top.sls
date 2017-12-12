@@ -17,4 +17,5 @@ base:
     - kibana.init
   'elk-5':
     - elk
-    
+  'grafana-minion':
+    - grafana
