@@ -12,7 +12,9 @@ base:
     - sugarcrm   
     - sugarcrm.user-list
     - create-linux-user
+    - grafana
   'elk-minion':
     - kibana.init
   'elk-5':
     - elk
+    
