@@ -3,5 +3,5 @@ foobar:
     - name: foobar
     - password: mypass
     - email: "foobar@localhost"
-    - fullname: Foo Bar
+    - fullname: Foo Barman
     - is_admin: true
