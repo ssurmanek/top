@@ -1,4 +1,4 @@
-boobar:
+foobar:
   grafana4_user.present:
     - name: foobar
     - password: mypass
