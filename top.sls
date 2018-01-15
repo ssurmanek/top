@@ -19,3 +19,5 @@ base:
     - elk
   'grafana-minion':
     - grafana
+  'wso2-minion':
+    - wso2
