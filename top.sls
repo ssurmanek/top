@@ -21,5 +21,5 @@ base:
     - grafana
   'wso2-minion':
     - wso2
-  'salt-stack-master'
+  'salt-stack-master':
     - update_pillar
