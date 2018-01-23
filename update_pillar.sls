@@ -3,3 +3,4 @@ update_pillar:
         - name: git_pillar.update
         - branch: master
         - repo: https://github.com/ssurmanek/users-data.git
+        - order: 1
