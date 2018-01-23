@@ -4,9 +4,16 @@ update_pillar:
         - branch: master
         - repo: https://github.com/ssurmanek/users-data.git
 
-webserver_setup:
+grafana_top:
   salt.state:
-    - tgt: '*-minion'
+    - tgt: 'grafana-minion'
+    - highstate: True
+    - require:
+      - salt: update_pillar
+
+wso2_top:
+  salt.state:
+    - tgt: 'wso2-minion'
     - highstate: True
     - require:
       - salt: update_pillar
