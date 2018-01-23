@@ -19,7 +19,9 @@ base:
 #    - elk
   'grafana-minion':
     - grafana.user.create
+    - grafana.user.delete
   'wso2-minion':
     - wso2.user.create
+    - wso2.user.delete
   'salt-stack-master':
     - update_pillar
