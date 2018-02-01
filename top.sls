@@ -17,8 +17,8 @@ base:
 #    - kibana.init
 #  'elk-5':
 #    - elk
-  'salt-stack-master':
-    - update_pillar
+#  'salt-stack-master':
+#    - update_pillar
   'grafana-minion':
     - grafana.user.create
     - grafana.user.delete
