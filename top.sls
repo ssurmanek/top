@@ -17,9 +17,9 @@ base:
 #    - kibana.init
 #  'elk-5':
 #    - elk
-#  'salt-stack-master':
-#    - linux.user.create
-#    - linux.user.delete
+  'salt-stack-master':
+    - linux.user.create
+    - linux.user.delete
   'grafana-minion':
     - grafana.user.create
     - grafana.user.delete
