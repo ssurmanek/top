@@ -1,5 +1,5 @@
 {% for userName, user in salt['pillar.get']('users_relative', {}).items() %}
-    {% if user.get('existence') == 'absent' %}
+    {% if user.get('existence') == 'absent' and 'linux' in user.get('groups') %}
     delete_user_{{ userName }}:
         user.absent:
             - name: {{ userName }}
