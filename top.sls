@@ -18,8 +18,8 @@ base:
 #  'elk-5':
 #    - elk
   'salt-stack-master':
-    - linux.user.create
-    - linux.user.delete
+    - master.user.create
+    - master.user.delete
   'grafana-minion':
     - grafana.user.create
     - grafana.user.delete
