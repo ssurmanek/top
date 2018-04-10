@@ -47,7 +47,7 @@ midpoint.tar.gz:
     - archive_format: tar
     - if_missing: /opt/midpoint-3.7.1-dist.tar.gz
     
-java_home:
+midpoint_home:
   environ.setenv:
      - name: JAVA_HOME
      - value: /opt/midpoint-3.7.1
@@ -65,3 +65,6 @@ run-midpoint:
     - name: /opt/midpoint-3.7.1/bin/start.sh
     - shell: /bin/bash
     - cwd: /opt/midpoint-3.7.1/bin
+    - require: 
+        - environ: java_home
+        - environ: midpoint_home
