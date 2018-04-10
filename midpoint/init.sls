@@ -55,9 +55,8 @@ midpoint.tar.gz:
 #    - require: 
 #        - environ: java_home
 
-cmd-test:
+run-midpoint:
   cmd.script:
     - name: start.sh
     - cwd: /opt/midpoint-3.7.1/bin
-    - bash: 
     - shell: /bin/bash
