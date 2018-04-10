@@ -46,7 +46,12 @@ midpoint.tar.gz:
     - source_hash: md5=1aa8e84aca1c5c24827804d5d21276f9
     - archive_format: tar
     - if_missing: /opt/midpoint-3.7.1-dist.tar.gz
-
+    
+java_home:
+  environ.setenv:
+     - name: JAVA_HOME
+     - value: /opt/midpoint-3.7.1
+     - update_minion: True
 
 #run-midpoint:
 #  cmd.run:
