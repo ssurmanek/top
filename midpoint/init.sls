@@ -21,8 +21,14 @@ java_home:
 
 midpoint.tar.gz:
   archive.extracted:
-    - name: /opt/midpoint/midpoint-3.7.1-dist.tar.gz
+    - name: /opt/midpoint/
     - source: https://evolveum.com/downloads/midpoint/3.7.1/midpoint-3.7.1-dist.tar.gz
     - source_hash: md5=1aa8e84aca1c5c24827804d5d21276f9
     - archive_format: tar
     - if_missing: /opt/midpoint/midpoint-3.7.1-dist.tar.gz
+
+
+run-midpoint:
+  cmd.run:
+    - name: |
+        java -Xmx2048M -Xms2048M -Dfile.encoding=UTF8 -Dmidpoint.home=/opt/midpoint/var -jar /opt/midpoint/lib/midpoint.war
