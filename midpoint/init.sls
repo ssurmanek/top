@@ -49,7 +49,7 @@ midpoint.tar.gz:
     
 midpoint_home:
   environ.setenv:
-     - name: JAVA_HOME
+     - name: MIDPOINT_HOME
      - value: /opt/midpoint-3.7.1
      - update_minion: True
 
