@@ -48,12 +48,12 @@ midpoint.tar.gz:
     - if_missing: /opt/midpoint-3.7.1-dist.tar.gz
 
 
-%run-midpoint:
-%  cmd.run:
-%    - name: |
-%        java -Xmx2048M -Xms2048M -Dfile.encoding=UTF8 -Dmidpoint.home=/opt/midpoint-3.7.1 -jar /opt/midpoint-3.7.1/lib/midpoint.war
-%    - require: 
-%        - environ: java_home
+#run-midpoint:
+#  cmd.run:
+#    - name: |
+#        java -Xmx2048M -Xms2048M -Dfile.encoding=UTF8 -Dmidpoint.home=/opt/midpoint-3.7.1 -jar /opt/midpoint-3.7.1/lib/midpoint.war
+#    - require: 
+#        - environ: java_home
 
 cmd-test:
   cmd.script:
