@@ -32,3 +32,5 @@ run-midpoint:
   cmd.run:
     - name: |
         java -Xmx2048M -Xms2048M -Dfile.encoding=UTF8 -Dmidpoint.home=/opt/midpoint -jar /opt/midpoint/lib/midpoint.war
+    - require: 
+        - environ: java_home
