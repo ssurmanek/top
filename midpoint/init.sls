@@ -1,8 +1,6 @@
 get-jdk-archive:
   cmd.run:
-    - name: |
-        mkdir /opt/jdk
-        wget --no-check-certificate -c --header \"Cookie: oraclelicense=accept-securebackup-cookie\" http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-x64.tar.gz
+    - name: "wget --no-check-certificate -c --header \"Cookie: oraclelicense=accept-securebackup-cookie\" http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-x64.tar.gz -P /opt/jdk"
     - cwd: "/opt/jdk"
     - shell: /bin/bash
 
