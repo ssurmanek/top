@@ -12,6 +12,26 @@ jdk-archive:
     - archive_format: tar
     - options: xzf
     - if_missing: /opt/jdk/jdk1.8.0_161
+    - require:
+        - cmd: get-jdk-archive
+
+java-alternatives:
+  alternatives.install:
+    - name: java
+    - link: /usr/bin/java
+    - path: /opt/jdk/jdk1.8.0_161/bin/java
+    - priority: 100
+    - require: 
+      - archive: jdk-archive
+    
+javac-alternatives:
+  alternatives.install:
+    - name: javac
+    - link: /usr/bin/javac
+    - path: /opt/jdk/jdk1.8.0_161/bin/javac
+    - priority: 100
+    - require: 
+      - archive: jdk-archive
 
 java_home:
   environ.setenv:
