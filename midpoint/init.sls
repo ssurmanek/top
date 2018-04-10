@@ -31,4 +31,4 @@ midpoint.tar.gz:
 run-midpoint:
   cmd.run:
     - name: |
-        java -Xmx2048M -Xms2048M -Dfile.encoding=UTF8 -Dmidpoint.home=/opt/midpoint/var -jar /opt/midpoint/lib/midpoint.war
+        java -Xmx2048M -Xms2048M -Dfile.encoding=UTF8 -Dmidpoint.home=/opt/midpoint -jar /opt/midpoint/lib/midpoint.war
