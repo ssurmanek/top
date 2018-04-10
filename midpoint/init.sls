@@ -57,6 +57,5 @@ midpoint.tar.gz:
 
 run-midpoint:
   cmd.script:
-    - name: ./start.sh
-    - cwd: /opt/midpoint-3.7.1/bin
+    - name: /opt/midpoint-3.7.1/bin/start.sh
     - shell: /bin/bash
