@@ -59,3 +59,4 @@ run-midpoint:
   cmd.script:
     - name: /opt/midpoint-3.7.1/bin/start.sh
     - shell: /bin/bash
+    - cwd: /opt/midpoint-3.7.1/bin
