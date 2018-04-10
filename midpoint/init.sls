@@ -65,6 +65,6 @@ run-midpoint:
     - name: /opt/midpoint-3.7.1/bin/start.sh
     - shell: /bin/bash
     - cwd: /opt/midpoint-3.7.1/bin
+    - runas: root
     - require: 
         - environ: java_home
-        - environ: midpoint_home
