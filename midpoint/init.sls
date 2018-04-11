@@ -48,7 +48,7 @@ java_home:
 
 midpoint.tar.gz:
   archive.extracted:
-    - name: /opt/
+    - name: /opt/midpoint/
     - source: https://evolveum.com/downloads/midpoint/3.7.1/midpoint-3.7.1-dist.tar.gz
     - source_hash: md5=1aa8e84aca1c5c24827804d5d21276f9
     - archive_format: tar
@@ -57,7 +57,7 @@ midpoint.tar.gz:
 midpoint_home:
   environ.setenv:
      - name: MIDPOINT_HOME
-     - value: /opt/midpoint-3.7.1
+     - value: /opt/midpoint/midpoint-3.7.1
      - update_minion: True
 
 #run-midpoint:
@@ -69,9 +69,9 @@ midpoint_home:
 
 run-midpoint:
   cmd.script:
-    - name: /opt/midpoint-3.7.1/bin/start.sh
+    - name: /opt/midpoint/midpoint-3.7.1/bin/start.sh
     - shell: /bin/bash
-    - cwd: /opt/midpoint-3.7.1/bin
+    - cwd: /opt/midpoint/midpoint-3.7.1/bin
     - runas: midpoint
     - require: 
         - environ: java_home
