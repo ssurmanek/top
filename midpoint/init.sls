@@ -52,7 +52,10 @@ midpoint.tar.gz:
     - source: https://evolveum.com/downloads/midpoint/3.7.1/midpoint-3.7.1-dist.tar.gz
     - source_hash: md5=1aa8e84aca1c5c24827804d5d21276f9
     - archive_format: tar
+    - user: midpoint
     - if_missing: /opt/midpoint-3.7.1-dist.tar.gz
+    - require:
+        - user: midpoint-user
     
 #midpoint_home:
 #  environ.setenv:
