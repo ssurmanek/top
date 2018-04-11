@@ -54,6 +54,7 @@ midpoint.tar.gz:
     - archive_format: tar
     - user: midpoint
     - if_missing: /opt/midpoint
+    - enforce_ownership_on: /opt/midpoint/midpoint-3.7.1
     - require:
         - user: midpoint-user
     
