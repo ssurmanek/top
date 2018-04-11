@@ -4,6 +4,13 @@ get-jdk-archive:
         mkdir -p /opt/jdk
         wget --no-check-certificate -c --header 'Cookie: oraclelicense=accept-securebackup-cookie' http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-x64.tar.gz -P /opt/jdk
     - shell: /bin/bash
+    
+midpoint-user:
+  user.present:
+    - name: midpoint
+    - password: 5ecr3t
+    - groups:
+        - sudo
 
 jdk-archive:
   archive.extracted:
@@ -65,6 +72,7 @@ run-midpoint:
     - name: /opt/midpoint-3.7.1/bin/start.sh
     - shell: /bin/bash
     - cwd: /opt/midpoint-3.7.1/bin
-    - runas: root
+    - runas: midpoint
     - require: 
         - environ: java_home
+        - user: midpoint-user
