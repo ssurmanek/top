@@ -53,7 +53,7 @@ midpoint.tar.gz:
     - source_hash: md5=1aa8e84aca1c5c24827804d5d21276f9
     - archive_format: tar
     - user: midpoint
-    - if_missing: /opt/midpoint/midpoint-3.7.1
+    - if_missing: /opt/midpoint
     - require:
         - user: midpoint-user
     
