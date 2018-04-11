@@ -54,11 +54,11 @@ midpoint.tar.gz:
     - archive_format: tar
     - if_missing: /opt/midpoint-3.7.1-dist.tar.gz
     
-midpoint_home:
-  environ.setenv:
-     - name: MIDPOINT_HOME
-     - value: /opt/midpoint/midpoint-3.7.1
-     - update_minion: True
+#midpoint_home:
+#  environ.setenv:
+#     - name: MIDPOINT_HOME
+#     - value: /opt/midpoint/midpoint-3.7.1
+#     - update_minion: True
 
 #run-midpoint:
 #  cmd.run:
