@@ -1,24 +1,30 @@
+{% set jdk_home = salt['pillar.get']('midpoint:jdk-home', "/opt/jdk") %}
+{% set midpoint_dir = salt['pillar.get']('midpoint:dir', "/opt/midpoint") %}
+{% set midpoint_version = salt['pillar.get']('midpoint:version', "3.7.1") %}
+{% set midpoint_checksum = salt['pillar.get']('midpoint:checksum', None) %}
+{% set user_name = salt['pillar.get']('midpoint:user:name', "midpoint") %}
+
 get-jdk-archive:
   cmd.run:
     - name: |
-        mkdir -p /opt/jdk
+        mkdir -p {{ jdk_home }}
         wget --no-check-certificate -c --header 'Cookie: oraclelicense=accept-securebackup-cookie' http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-x64.tar.gz -P /opt/jdk
     - shell: /bin/bash
     
 midpoint-user:
   user.present:
-    - name: midpoint
-    - password: 5ecr3t
+    - name: {{ user_name }}
+    - password: {{ salt['pillar.get']('midpoint:user:password', "5ecr3t") }}
     - groups:
         - sudo
 
 jdk-archive:
   archive.extracted:
-    - name: /opt/jdk/
-    - source: /opt/jdk/jdk-8u161-linux-x64.tar.gz
+    - name: {{ jdk_home }}
+    - source: {{ jdk_home }}/jdk-8u161-linux-x64.tar.gz
     - archive_format: tar
     - options: xzf
-    - if_missing: /opt/jdk/jdk1.8.0_161
+    - if_missing: {{ jdk_home }}/jdk1.8.0_161
     - require:
         - cmd: get-jdk-archive
 
@@ -26,7 +32,7 @@ java-alternatives:
   alternatives.install:
     - name: java
     - link: /usr/bin/java
-    - path: /opt/jdk/jdk1.8.0_161/bin/java
+    - path: {{ jdk_home }}/jdk1.8.0_161/bin/java
     - priority: 100
     - require: 
       - archive: jdk-archive
@@ -35,7 +41,7 @@ javac-alternatives:
   alternatives.install:
     - name: javac
     - link: /usr/bin/javac
-    - path: /opt/jdk/jdk1.8.0_161/bin/javac
+    - path: {{ jdk_home }}/jdk1.8.0_161/bin/javac
     - priority: 100
     - require: 
       - archive: jdk-archive
@@ -43,26 +49,24 @@ javac-alternatives:
 java_home:
   environ.setenv:
      - name: JAVA_HOME
-     - value: /opt/jdk/jdk1.8.0_161
+     - value: {{ jdk_home }}/jdk1.8.0_161
      - update_minion: True
 
 midpoint.tar.gz:
   archive.extracted:
-    - name: /opt/midpoint
-    - source: https://evolveum.com/downloads/midpoint/3.7.1/midpoint-3.7.1-dist.tar.gz
-    - source_hash: md5=1aa8e84aca1c5c24827804d5d21276f9
+    - name: {{ midpoint_dir }}
+    - source: https://evolveum.com/downloads/midpoint/{{ midpoint_version }}/midpoint-{{ midpoint_version }}-dist.tar.gz
+    {% if midpoint_checksum %}
+    - source_hash: {{ midpoint_checksum }}
+    {% else %}
+    - skip_verify: True
+    {% endif %}
     - archive_format: tar
-    - user: midpoint
-    - if_missing: /opt/midpoint
-    - enforce_ownership_on: /opt/midpoint/midpoint-3.7.1
+    - user: {{ user_name }}
+    - if_missing: {{ midpoint_dir }}
+    - enforce_ownership_on: {{ midpoint_dir }}/midpoint-{{ midpoint_version }}
     - require:
         - user: midpoint-user
-    
-#midpoint_home:
-#  environ.setenv:
-#     - name: MIDPOINT_HOME
-#     - value: /opt/midpoint/midpoint-3.7.1
-#     - update_minion: True
 
 #run-midpoint:
 #  cmd.run:
@@ -73,9 +77,9 @@ midpoint.tar.gz:
 
 run-midpoint:
   cmd.script:
-    - name: /opt/midpoint/midpoint-3.7.1/bin/start.sh
+    - name: {{ midpoint_dir }}/midpoint-{{ midpoint_version }}/bin/start.sh
     - shell: /bin/bash
-    - cwd: /opt/midpoint/midpoint-3.7.1/bin
+    - cwd: {{ midpoint_dir }}/midpoint-{{ midpoint_version }}/bin
     - runas: midpoint
     - require: 
         - environ: java_home
