@@ -2,7 +2,7 @@
 {% set midpoint_dir = salt['pillar.get']('midpoint:base-dir', "/opt/midpoint") %}
 {% set midpoint_version = salt['pillar.get']('midpoint:version', "3.7.1") %}
 {% set midpoint_checksum = salt['pillar.get']('midpoint:checksum', None) %}
-{% set user_name = salt['pillar.get']('midpoint:user:name', "midpoint") %}
+{% set user_name = salt['pillar.get']('midpoint:user-name', "midpoint") %}
 
 get-jdk-archive:
   cmd.run:
@@ -14,7 +14,7 @@ get-jdk-archive:
 midpoint-user:
   user.present:
     - name: {{ user_name }}
-    - password: {{ salt['pillar.get']('midpoint:user:password', "5ecr3t") }}
+    - password: {{ salt['pillar.get']('midpoint:user-password', "5ecr3t") }}
     - groups:
         - sudo
 
