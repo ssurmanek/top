@@ -1,5 +1,5 @@
 {% set jdk_home = salt['pillar.get']('midpoint:jdk-home', "/opt/jdk") %}
-{% set midpoint_dir = salt['pillar.get']('midpoint:dir', "/opt/midpoint") %}
+{% set midpoint_dir = salt['pillar.get']('midpoint:base-dir', "/opt/midpoint") %}
 {% set midpoint_version = salt['pillar.get']('midpoint:version', "3.7.1") %}
 {% set midpoint_checksum = salt['pillar.get']('midpoint:checksum', None) %}
 {% set user_name = salt['pillar.get']('midpoint:user:name', "midpoint") %}
