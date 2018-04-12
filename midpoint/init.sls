@@ -56,7 +56,6 @@ midpoint.tar.gz:
   archive.extracted:
     - name: {{ midpoint_dir }}
     - source: https://evolveum.com/downloads/midpoint/{{ midpoint_version }}/midpoint-{{ midpoint_version }}-dist.tar.gz
-    - midpoint_checksum: {{ midpoint_checksum }}
     {% if midpoint_checksum %}
     - source_hash: {{ midpoint_checksum }}
     {% else %}
