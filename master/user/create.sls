@@ -7,8 +7,9 @@
             - name: {{ userName }}
             - home: /home/{{ userName }}
             - shell: /bin/sh
+            - groups1: aa
             {% if 'groups' in user %}
-            - groups: aa
+            - groups2: aa
             {% set groups = user.get('groups') %}
                 {% for group in groups if group.split(':')[0] == 'salt-stack-master' %}
             - groups: {% group.split(':')[1].split(',') %}
