@@ -10,7 +10,7 @@
             {% if 'groups' in user %} 
             {% set groups = user.get('groups') %}
                 {% for group in groups if group.split(':')[0] == 'salt-stack-master' %}
-            - groups: group.split(':')[1].split(',')
+            - groups: {% group.split(':')[1].split(',') %}
                 {% endfor %}
         {% endif %}
     {% endif %}
